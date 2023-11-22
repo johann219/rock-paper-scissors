@@ -81,3 +81,5 @@ function game() {
     alert(`The game concluded in a draw with the score of ${playerCount}-${computerCount}`)
   }
 }
+
+game();
