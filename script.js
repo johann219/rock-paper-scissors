@@ -43,7 +43,41 @@ function playRound (playerSelection, computerSelection) {
     return computerSelectionFormat === "Paper" ? "You win! Scissors beat paper." : "You lose! Rock beats scissors.";
   }
 }
-// Convert player choice to lower case
-// Convert player choice first letter to upper case
-// If player choice is the same as computer choice declare a draw
-// If player choice is paper and computer choice is rock return "You win!"
+
+function game() {
+  let playerCount = 0;
+  let computerCount = 0;
+
+  for (i = 0; i < 5; i++) {
+    let playerChoice = prompt("rock, paper, scissors");
+    let computerChoice = getComputerChoice();
+    let result = playRound(playerChoice, computerChoice);
+    if (result !== "Draw!") {
+      if (result.slice(0, 7) === "You win") {
+        ++playerCount;
+      } else {
+        ++computerCount;
+      }
+    }
+
+    alert(`${result} Total score: ${playerCount}-${computerCount}`);
+
+    if (playerCount === 3) {
+      alert(`You won the game with the score of ${playerCount}-${computerCount}!`);
+      return "win";
+    } else if (computerCount === 3) {
+      alert(`Sorry! You lost the game with the score of ${playerCount}-${computerCount}!`);
+      return "lose";
+    }
+  }
+
+  if (computerCount > playerCount) {
+    alert(`Sorry! You lost the game with the score of ${playerCount}-${computerCount}!`);
+    return "lose";
+  } else if (computerCount < playerCount) {
+    alert(`You won the game with the score of ${playerCount}-${computerCount}!`);
+    return "win";
+  } else {
+    alert(`The game concluded in a draw with the score of ${playerCount}-${computerCount}`)
+  }
+}
