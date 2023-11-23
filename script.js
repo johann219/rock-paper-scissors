@@ -29,25 +29,51 @@ function formatSelection (selection) {
 
 function playRound (playerSelection, computerSelection) {
   const playerSelectionFormat = formatSelection(playerSelection);
-  const computerSelectionFormat = formatSelection(computerSelection);
-
-  if (playerSelectionFormat === computerSelectionFormat) {
-    return "Draw!";
-  }
 
   if (playerSelectionFormat === "Rock") {
-    return computerSelectionFormat === "Scissors" ? "You win! Rock beats scissors." : "You lose! Paper beats rock.";
+    switch (computerSelection) {
+      case "Rock":
+        alert("It's a draw! Rock can't beat itself.");
+        return "draw";
+      case "Paper":
+        alert("You lost! Paper beats rock.");
+        return "lose";
+      case "Scissors":
+        alert("You won! Rock beats scissors.");
+        return "win";
+    }
   }
-  
+
   if (playerSelectionFormat === "Paper") {
-    return computerSelectionFormat === "Rock" ? "You win! Paper beats rock." : "You lose! Scissors beat paper.";
+    switch (computerSelection) {
+      case "Paper":
+        alert("It's a draw! Paper can't beat itself.");
+        return "draw";
+      case "Scissors":
+        alert("You lost! Scissors beats paper.");
+        return "lose";
+      case "Rock":
+        alert("You won! Paper beats rock.");
+        return "win";
+    }
   }
-  
+
   if (playerSelectionFormat === "Scissors") {
-    return computerSelectionFormat === "Paper" ? "You win! Scissors beat paper." : "You lose! Rock beats scissors.";
+    switch (computerSelection) {
+      case "Scissors":
+        alert("It's a draw! Scissors can't beat itself.");
+        return "draw";
+      case "Rock":
+        alert("You lost! Rock beats scissors.");
+        return "lose";
+      case "Paper":
+        alert("You won! Scissors beats paper.");
+        return "win";
+    }
   }
 }
 
+/*
 function game() {
   let playerCount = 0;
   let computerCount = 0;
@@ -87,3 +113,4 @@ function game() {
 }
 
 game();
+*/
