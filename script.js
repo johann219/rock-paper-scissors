@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let random = Math.floor(Math.random() * 3 + 1);
+  let random = randomOneToThree();
   let computerChoice = "";
   switch (random) {
     case 1: 
@@ -13,6 +13,10 @@ function getComputerChoice() {
       break;
   }
   return computerChoice;
+}
+
+function randomOneToThree () {
+  return Math.floor(Math.random() * 3 + 1);
 }
 
 function formatSelection (selection) {
