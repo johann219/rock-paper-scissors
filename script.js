@@ -73,44 +73,48 @@ function playRound (playerSelection, computerSelection) {
   }
 }
 
-/*
 function game() {
   let playerCount = 0;
   let computerCount = 0;
 
   for (i = 0; i < 5; i++) {
+    alert(`Round left: ${5-i}`);
     let playerChoice = prompt("rock, paper, scissors");
     let computerChoice = getComputerChoice();
     let result = playRound(playerChoice, computerChoice);
-    if (result !== "Draw!") {
-      if (result.slice(0, 7) === "You win") {
+    
+    switch (result) {
+      case "win":
         ++playerCount;
-      } else {
+        break;
+      case "lose":
         ++computerCount;
-      }
+        break;
     }
 
-    alert(`${result} Total score: ${playerCount}-${computerCount}`);
+    alert(`The score is ${playerCount}-${computerCount}`);
+    
+    if (playerCount === 3 || i < 4) {
+      alert(`Congratulations! You win early with the score of ${playerCount}-${computerCount}`);
+      return "Game won!";
+    } 
 
-    if (playerCount === 3) {
-      alert(`You won the game with the score of ${playerCount}-${computerCount}!`);
-      return "win";
-    } else if (computerCount === 3) {
-      alert(`Sorry! You lost the game with the score of ${playerCount}-${computerCount}!`);
-      return "lose";
+    if (computerCount === 3 || i < 4) {
+      alert(`Sorry! You lose early with the score of ${playerCount}-${computerCount}`);
+      return "Game lost!";
     }
   }
 
-  if (computerCount > playerCount) {
-    alert(`Sorry! You lost the game with the score of ${playerCount}-${computerCount}!`);
-    return "lose";
-  } else if (computerCount < playerCount) {
-    alert(`You won the game with the score of ${playerCount}-${computerCount}!`);
-    return "win";
+  if (playerCount > computerCount) {
+    alert(`Congratulations! You win with the score of ${playerCount}-${computerCount}`);
+      return "Game won!";
+  } else if (playerCount < computerCount) {
+    alert(`Sorry! You lose with the score of ${playerCount}-${computerCount}`);
+    return "Game lost!";
   } else {
-    alert(`The game concluded in a draw with the score of ${playerCount}-${computerCount}`)
+    alert(`Unfortunately, game concluded as a draw with the score of ${playerCount}-${computerCount}`);
+    return "The draw!";
   }
 }
 
 game();
-*/
