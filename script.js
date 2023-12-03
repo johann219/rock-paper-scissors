@@ -43,72 +43,71 @@ function checkScore () {
   }
 }
 
+function playRoundRock (computerSelection) {
+  switch (computerSelection) {
+    case "Rock":
+      return "It's a draw! Rock can't beat itself.";
+    case "Paper":
+      computerScore++;
+      return "You lost! Paper beats rock.";
+    case "Scissors":
+      playerScore++;
+      return "You won! Rock beats scissors.";
+  }
+}
+
+function playRoundPaper (computerSelection) {
+  switch (computerSelection) {
+    case "Paper":
+      return "It's a draw! Paper can't beat itself.";
+    case "Scissors":
+      computerScore++;
+      return "You lost! Scissors beats paper.";
+    case "Rock":
+      playerScore++;
+      return "You won! Paper beats rock.";
+  }
+}
+
+function playRoundScissors (computerSelection) {
+  switch (computerSelection) {
+    case "Scissors":
+      return "It's a draw! Scissors can't beat itself.";
+    case "Rock":
+      computerScore++;
+      return "You lost! Rock beats scissors.";
+    case "Paper":
+      playerScore++;
+      return "You won! Scissors beats paper.";
+  }
+}
+
 const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
   const div = document.querySelector("#temp-result");
+  
   if (document.querySelector('#round-result') !== null) {
     div.removeChild(document.querySelector('p'));
   }
+  
   const p = document.createElement('p');
   p.setAttribute('id', "round-result")
 
-  if (playerSelection === "Rock") {
-    switch (computerSelection) {
-      case "Rock":
-        p.textContent = "It's a draw! Rock can't beat itself.";
-        div.appendChild(p);
-        break;
-      case "Paper":
-        p.textContent = "You lost! Paper beats rock.";
-        div.appendChild(p);
-        computerScore++;
-        break;
-      case "Scissors":
-        p.textContent = "You won! Rock beats scissors.";
-        div.appendChild(p);
-        playerScore++;
-        break;
-    }
+  switch (playerSelection) {
+    case 'Rock':
+      p.textContent = playRoundRock(computerSelection);
+      break;
+    case 'Paper':
+      p.textContent = playRoundPaper(computerSelection);
+      break;
+    case 'Scissors':
+      p.textContent = playRoundScissors(computerSelection);
+      break;
   }
 
-  if (playerSelection === "Paper") {
-    switch (computerSelection) {
-      case "Paper":
-        p.textContent = "It's a draw! Paper can't beat itself.";
-        div.appendChild(p);
-        break;
-      case "Scissors":
-        p.textContent = "You lost! Scissors beats paper.";
-        div.appendChild(p);
-        computerScore++;
-        break;
-      case "Rock":
-        p.textContent = "You won! Paper beats rock.";
-        div.appendChild(p);
-        playerScore++;
-        break;
-    }
-  }
-
-  if (playerSelection === "Scissors") {
-    switch (computerSelection) {
-      case "Scissors":
-        p.textContent = "It's a draw! Scissors can't beat itself.";
-        div.appendChild(p);
-        break;
-      case "Rock":
-        p.textContent = "You lost! Rock beats scissors.";
-        div.appendChild(p);
-        computerScore++;
-      case "Paper":
-        p.textContent = "You won! Scissors beats paper.";
-        div.appendChild(p);
-        playerScore++;
-        break;
-    }
-  }
-
+  div.appendChild(p);
+  
   updateCounter();
   checkScore();
 }
