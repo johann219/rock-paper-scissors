@@ -20,11 +20,11 @@ function randomOneToThree () {
 }
 
 function updateCounter () {
-  const playerCounter = document.querySelector("#player-counter");
-  const computerCounter = document.querySelector("#computer-counter");
+  const playerCounter = document.querySelector("#player-counter-score");
+  const computerCounter = document.querySelector("#computer-counter-score");
 
-  playerCounter.textContent = `Your score: ${playerScore}`;
-  computerCounter.textContent = `Computer score: ${computerScore}`;
+  playerCounter.textContent = `${playerScore}`;
+  computerCounter.textContent = `${computerScore}`;
 }
 
 function checkScore () {

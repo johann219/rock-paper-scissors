@@ -7,13 +7,17 @@ h1 {
 }
 
 #selection-window {
-  margin: auto;
   display: flex;
   gap: 10px;
   justify-content: center;
 }
 
+#temp-result {
+  text-align: center;
+}
+
 button {
   width: 100px;
   height: 20px;
+  font-weight: 700;
 }
