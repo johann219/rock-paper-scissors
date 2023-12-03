@@ -27,14 +27,23 @@ function formatSelection (selection) {
   return selectionFormatted;
 }
 
+function updateCounter () {
+  const playerCounter = document.querySelector("#player-counter");
+  const computerCounter = document.querySelector("#computer-counter");
+
+  playerCounter.textContent = `Your score: ${playerCount}`;
+  computerCounter.textContent = `Computer score: ${computerCount}`;
+}
+
 const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
-  const div = document.querySelector(".temp-result");
-  if (document.querySelector('p') !== null) {
+  const div = document.querySelector("#temp-result");
+  if (document.querySelector('#round-result') !== null) {
     div.removeChild(document.querySelector('p'));
   }
   const p = document.createElement('p');
+  p.setAttribute('id', "round-result")
 
   if (playerSelection === "Rock") {
     switch (computerSelection) {
@@ -91,6 +100,8 @@ const playRound = function (playerSelection) {
         break;
     }
   }
+
+  updateCounter();
 }
 
 const btnRock = document.querySelector("#select-rock");
