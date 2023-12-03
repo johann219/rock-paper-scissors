@@ -31,8 +31,24 @@ function updateCounter () {
   const playerCounter = document.querySelector("#player-counter");
   const computerCounter = document.querySelector("#computer-counter");
 
-  playerCounter.textContent = `Your score: ${playerCount}`;
-  computerCounter.textContent = `Computer score: ${computerCount}`;
+  playerCounter.textContent = `Your score: ${playerScore}`;
+  computerCounter.textContent = `Computer score: ${computerScore}`;
+}
+
+function checkScore () {
+  if (playerScore === 5) {
+    const finalDiv = document.querySelector("#final-result");
+    const result = document.createElement('p');
+    result.textContent = `Congratulations! You won with the score of ${playerScore}-${computerScore}`;
+    finalDiv.appendChild(result);
+  }
+
+  if (computerScore === 5) {
+    const finalDiv = document.querySelector("#final-result");
+    const result = document.createElement('p');
+    result.textContent = `What a shame! You lost with the score of ${playerScore}-${computerScore}`;
+    finalDiv.appendChild(result);
+  }
 }
 
 const playRound = function (playerSelection) {
@@ -54,12 +70,12 @@ const playRound = function (playerSelection) {
       case "Paper":
         p.textContent = "You lost! Paper beats rock.";
         div.appendChild(p);
-        computerCount++;
+        computerScore++;
         break;
       case "Scissors":
         p.textContent = "You won! Rock beats scissors.";
         div.appendChild(p);
-        playerCount++;
+        playerScore++;
         break;
     }
   }
@@ -73,12 +89,12 @@ const playRound = function (playerSelection) {
       case "Scissors":
         p.textContent = "You lost! Scissors beats paper.";
         div.appendChild(p);
-        computerCount++;
+        computerScore++;
         break;
       case "Rock":
         p.textContent = "You won! Paper beats rock.";
         div.appendChild(p);
-        playerCount++;
+        playerScore++;
         break;
     }
   }
@@ -92,16 +108,17 @@ const playRound = function (playerSelection) {
       case "Rock":
         p.textContent = "You lost! Rock beats scissors.";
         div.appendChild(p);
-        computerCount++;
+        computerScore++;
       case "Paper":
         p.textContent = "You won! Scissors beats paper.";
         div.appendChild(p);
-        playerCount++;
+        playerScore++;
         break;
     }
   }
 
   updateCounter();
+  checkScore();
 }
 
 const btnRock = document.querySelector("#select-rock");
@@ -112,52 +129,5 @@ btnRock.addEventListener('click', () => playRound("Rock"));
 btnPaper.addEventListener('click', () => playRound("Paper"));
 btnScissors.addEventListener('click', () => playRound("Scissors"));
 
-let playerCount = 0;
-let computerCount = 0;
-/*
-function game() {
-  let playerCount = 0;
-  let computerCount = 0;
-
-  for (i = 0; i < 5; i++) {
-    alert(`Round left: ${5-i}`);
-    let playerChoice = prompt("rock, paper, scissors");
-    let computerChoice = getComputerChoice();
-    let result = playRound(playerChoice, computerChoice);
-    
-    switch (result) {
-      case "win":
-        ++playerCount;
-        break;
-      case "lose":
-        ++computerCount;
-        break;
-    }
-
-    alert(`The score is ${playerCount}-${computerCount}`);
-    
-    if (playerCount === 3 || i < 4) {
-      alert(`Congratulations! You win early with the score of ${playerCount}-${computerCount}`);
-      return "Game won!";
-    } 
-
-    if (computerCount === 3 || i < 4) {
-      alert(`Sorry! You lose early with the score of ${playerCount}-${computerCount}`);
-      return "Game lost!";
-    }
-  }
-
-  if (playerCount > computerCount) {
-    alert(`Congratulations! You win with the score of ${playerCount}-${computerCount}`);
-      return "Game won!";
-  } else if (playerCount < computerCount) {
-    alert(`Sorry! You lose with the score of ${playerCount}-${computerCount}`);
-    return "Game lost!";
-  } else {
-    alert(`Unfortunately, game concluded as a draw with the score of ${playerCount}-${computerCount}`);
-    return "The draw!";
-  }
-}
-
-game();
-*/
+let playerScore = 0;
+let computerScore = 0;
