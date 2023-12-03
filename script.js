@@ -31,6 +31,9 @@ const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
   const div = document.querySelector(".temp-result");
+  if (document.querySelector('p') !== null) {
+    div.removeChild(document.querySelector('p'));
+  }
   const p = document.createElement('p');
 
   if (playerSelection === "Rock") {
@@ -71,12 +74,15 @@ const playRound = function (playerSelection) {
     switch (computerSelection) {
       case "Scissors":
         p.textContent = "It's a draw! Scissors can't beat itself.";
+        div.appendChild(p);
         return "draw";
       case "Rock":
         p.textContent = "You lost! Rock beats scissors.";
+        div.appendChild(p);
         return "lose";
       case "Paper":
         p.textContent = "You won! Scissors beats paper.";
+        div.appendChild(p);
         return "win";
     }
   }
