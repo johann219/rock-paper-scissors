@@ -27,10 +27,10 @@ function formatSelection (selection) {
   return selectionFormatted;
 }
 
-function playRound (playerSelection, computerSelection) {
-  const playerSelectionFormat = formatSelection(playerSelection);
-
-  if (playerSelectionFormat === "Rock") {
+function playRound (playerSelection) {
+  const computerSelection = getComputerChoice();
+  
+  if (playerSelection === "Rock") {
     switch (computerSelection) {
       case "Rock":
         alert("It's a draw! Rock can't beat itself.");
@@ -44,7 +44,7 @@ function playRound (playerSelection, computerSelection) {
     }
   }
 
-  if (playerSelectionFormat === "Paper") {
+  if (playerSelection === "Paper") {
     switch (computerSelection) {
       case "Paper":
         alert("It's a draw! Paper can't beat itself.");
@@ -58,7 +58,7 @@ function playRound (playerSelection, computerSelection) {
     }
   }
 
-  if (playerSelectionFormat === "Scissors") {
+  if (playerSelection === "Scissors") {
     switch (computerSelection) {
       case "Scissors":
         alert("It's a draw! Scissors can't beat itself.");
@@ -72,6 +72,10 @@ function playRound (playerSelection, computerSelection) {
     }
   }
 }
+
+const btnRock = document.querySelector("#select-rock");
+const btnPaper = document.querySelector("#select-paper");
+const btnScissors = document.querySelector("#select-scissors");
 
 /*
 function game() {
