@@ -41,15 +41,17 @@ const playRound = function (playerSelection) {
       case "Rock":
         p.textContent = "It's a draw! Rock can't beat itself.";
         div.appendChild(p);
-        return "draw";
+        break;
       case "Paper":
         p.textContent = "You lost! Paper beats rock.";
         div.appendChild(p);
-        return "lose";
+        computerCount++;
+        break;
       case "Scissors":
         p.textContent = "You won! Rock beats scissors.";
         div.appendChild(p);
-        return "win";
+        playerCount++;
+        break;
     }
   }
 
@@ -58,15 +60,17 @@ const playRound = function (playerSelection) {
       case "Paper":
         p.textContent = "It's a draw! Paper can't beat itself.";
         div.appendChild(p);
-        return "draw";
+        break;
       case "Scissors":
         p.textContent = "You lost! Scissors beats paper.";
         div.appendChild(p);
-        return "lose";
+        computerCount++;
+        break;
       case "Rock":
         p.textContent = "You won! Paper beats rock.";
         div.appendChild(p);
-        return "win";
+        playerCount++;
+        break;
     }
   }
 
@@ -75,15 +79,16 @@ const playRound = function (playerSelection) {
       case "Scissors":
         p.textContent = "It's a draw! Scissors can't beat itself.";
         div.appendChild(p);
-        return "draw";
+        break;
       case "Rock":
         p.textContent = "You lost! Rock beats scissors.";
         div.appendChild(p);
-        return "lose";
+        computerCount++;
       case "Paper":
         p.textContent = "You won! Scissors beats paper.";
         div.appendChild(p);
-        return "win";
+        playerCount++;
+        break;
     }
   }
 }
@@ -96,7 +101,8 @@ btnRock.addEventListener('click', () => playRound("Rock"));
 btnPaper.addEventListener('click', () => playRound("Paper"));
 btnScissors.addEventListener('click', () => playRound("Scissors"));
 
-
+let playerCount = 0;
+let computerCount = 0;
 /*
 function game() {
   let playerCount = 0;
