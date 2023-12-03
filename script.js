@@ -30,16 +30,22 @@ function formatSelection (selection) {
 const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
+  const div = document.querySelector(".temp-result");
+  const p = document.createElement('p');
+
   if (playerSelection === "Rock") {
     switch (computerSelection) {
       case "Rock":
-        alert("It's a draw! Rock can't beat itself.");
+        p.textContent = "It's a draw! Rock can't beat itself.";
+        div.appendChild(p);
         return "draw";
       case "Paper":
-        alert("You lost! Paper beats rock.");
+        p.textContent = "You lost! Paper beats rock.";
+        div.appendChild(p);
         return "lose";
       case "Scissors":
-        alert("You won! Rock beats scissors.");
+        p.textContent = "You won! Rock beats scissors.";
+        div.appendChild(p);
         return "win";
     }
   }
@@ -47,13 +53,16 @@ const playRound = function (playerSelection) {
   if (playerSelection === "Paper") {
     switch (computerSelection) {
       case "Paper":
-        alert("It's a draw! Paper can't beat itself.");
+        p.textContent = "It's a draw! Paper can't beat itself.";
+        div.appendChild(p);
         return "draw";
       case "Scissors":
-        alert("You lost! Scissors beats paper.");
+        p.textContent = "You lost! Scissors beats paper.";
+        div.appendChild(p);
         return "lose";
       case "Rock":
-        alert("You won! Paper beats rock.");
+        p.textContent = "You won! Paper beats rock.";
+        div.appendChild(p);
         return "win";
     }
   }
@@ -61,13 +70,13 @@ const playRound = function (playerSelection) {
   if (playerSelection === "Scissors") {
     switch (computerSelection) {
       case "Scissors":
-        alert("It's a draw! Scissors can't beat itself.");
+        p.textContent = "It's a draw! Scissors can't beat itself.";
         return "draw";
       case "Rock":
-        alert("You lost! Rock beats scissors.");
+        p.textContent = "You lost! Rock beats scissors.";
         return "lose";
       case "Paper":
-        alert("You won! Scissors beats paper.");
+        p.textContent = "You won! Scissors beats paper.";
         return "win";
     }
   }
@@ -80,6 +89,7 @@ const btnScissors = document.querySelector("#select-scissors");
 btnRock.addEventListener('click', () => playRound("Rock"));
 btnPaper.addEventListener('click', () => playRound("Paper"));
 btnScissors.addEventListener('click', () => playRound("Scissors"));
+
 
 /*
 function game() {
