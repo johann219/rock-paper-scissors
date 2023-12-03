@@ -19,14 +19,6 @@ function randomOneToThree () {
   return Math.floor(Math.random() * 3 + 1);
 }
 
-function formatSelection (selection) {
-  const selectionLowerCase = selection.toLowerCase();
-  const selectionFirstLetter = selection.slice(0, 1);
-  const selectionFirstLetterCapitalized = selectionFirstLetter.toUpperCase();
-  const selectionFormatted = selectionFirstLetterCapitalized + selectionLowerCase.slice(1, selection.length);
-  return selectionFormatted;
-}
-
 function updateCounter () {
   const playerCounter = document.querySelector("#player-counter");
   const computerCounter = document.querySelector("#computer-counter");
