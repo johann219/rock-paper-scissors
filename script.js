@@ -73,6 +73,7 @@ function playRound (playerSelection, computerSelection) {
   }
 }
 
+/*
 function game() {
   let playerCount = 0;
   let computerCount = 0;
@@ -118,3 +119,4 @@ function game() {
 }
 
 game();
+*/
