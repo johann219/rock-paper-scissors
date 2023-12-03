@@ -85,14 +85,7 @@ function playRoundScissors (computerSelection) {
 const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
-  const div = document.querySelector("#temp-result");
-  
-  if (document.querySelector('#round-result') !== null) {
-    div.removeChild(document.querySelector('p'));
-  }
-  
-  const p = document.createElement('p');
-  p.setAttribute('id', "round-result")
+  const p = document.querySelector("#temp-result");
 
   switch (playerSelection) {
     case 'Rock':
@@ -105,8 +98,6 @@ const playRound = function (playerSelection) {
       p.textContent = playRoundScissors(computerSelection);
       break;
   }
-
-  div.appendChild(p);
   
   updateCounter();
   checkScore();
