@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.selection-window {
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  width: 100px;
+  height: 20px;
+}
