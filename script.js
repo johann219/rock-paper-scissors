@@ -27,7 +27,7 @@ function formatSelection (selection) {
   return selectionFormatted;
 }
 
-function playRound (playerSelection) {
+const playRound = function (playerSelection) {
   const computerSelection = getComputerChoice();
   
   if (playerSelection === "Rock") {
@@ -76,6 +76,10 @@ function playRound (playerSelection) {
 const btnRock = document.querySelector("#select-rock");
 const btnPaper = document.querySelector("#select-paper");
 const btnScissors = document.querySelector("#select-scissors");
+
+btnRock.addEventListener('click', () => playRound("Rock"));
+btnPaper.addEventListener('click', () => playRound("Paper"));
+btnScissors.addEventListener('click', () => playRound("Scissors"));
 
 /*
 function game() {
