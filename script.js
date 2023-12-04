@@ -27,19 +27,12 @@ function updateCounter () {
   computerCounter.textContent = `${computerScore}`;
 }
 
-function disableGame () {
-  btnRock.removeEventListener('click', () => playRound("Rock"));
-  btnPaper.removeEventListener('click', () => playRound("Paper"));
-  btnScissors.removeEventListener('click', () => playRound("Scissors"));
-}
-
 function checkScore () {
   if (playerScore === 5) {
     const finalDiv = document.querySelector("#final-result");
     const result = document.createElement('p');
     result.textContent = `Congratulations! You won with the score of ${playerScore}-${computerScore}`;
     finalDiv.appendChild(result);
-    disableGame();
   }
 
   if (computerScore === 5) {
@@ -47,7 +40,6 @@ function checkScore () {
     const result = document.createElement('p');
     result.textContent = `What a shame! You lost with the score of ${playerScore}-${computerScore}`;
     finalDiv.appendChild(result);
-    disableGame();
   }
 }
 
