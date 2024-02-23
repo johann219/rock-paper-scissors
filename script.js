@@ -20,7 +20,7 @@ const capitalizeString = (string) => {
 const results = {
     'Rock - Scissors': 'You win! Rock beats scissors!',
     'Rock - Paper': 'You lose! Paper beats rock!',
-    'Rock - Scissors': 'A tie! Rock is no stronger than a rock!',
+    'Rock - Rock': 'A tie! Rock is no stronger than a rock!',
 
     'Paper - Rock': 'You win! Paper beats rock!',
     'Paper - Scissors': 'You lose! Scissors beats paper!',
@@ -30,3 +30,7 @@ const results = {
     'Scissors - Rock': 'You lose! Rock beats scissors!',
     'Scissors - Scissors': 'A tie! Scissors is no stronger than a scissors!',
 }
+
+const playRound = (playerChoice, computerChoice) => {
+    return results[`${playerChoice} - ${computerChoice}`];
+};
