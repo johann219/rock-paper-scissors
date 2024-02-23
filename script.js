@@ -3,11 +3,11 @@ const getComputerChoice = () => {
     
     switch (num) {
         case 1: 
-            return 'rock';
+            return 'Rock';
         case 2: 
-            return 'paper';
+            return 'Paper';
         case 3: 
-            return 'scissors';
+            return 'Scissors';
     }
 };
 
