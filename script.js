@@ -16,3 +16,17 @@ const capitalizeString = (string) => {
     string = firstLetter + string.slice(1).toLowerCase();
     return string;
 }
+
+const results = {
+    'Rock - Scissors': 'You win! Rock beats scissors!',
+    'Rock - Paper': 'You lose! Paper beats rock!',
+    'Rock - Scissors': 'A tie! Rock is no stronger than a rock!',
+
+    'Paper - Rock': 'You win! Paper beats rock!',
+    'Paper - Scissors': 'You lose! Scissors beats paper!',
+    'Paper - Paper': 'A tie! paper is no stronger than a paper!',
+
+    'Scissors - Paper': 'You win! Scissors beats paper!',
+    'Scissors - Rock': 'You lose! Rock beats scissors!',
+    'Scissors - Scissors': 'A tie! Scissors is no stronger than a scissors!',
+}
