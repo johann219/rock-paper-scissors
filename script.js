@@ -17,20 +17,48 @@ const capitalizeString = (string) => {
     return string;
 }
 
-const resultMessages = {
-    'Rock - Scissors': 'You win! Rock beats scissors!',
-    'Rock - Paper': 'You lose! Paper beats rock!',
-    'Rock - Rock': 'A tie! Rock is no stronger than a rock!',
+const results = {
+    'Rock - Scissors': {
+        result: 'win',
+        message: 'You win! Rock beats scissors!'
+    },
+    'Rock - Paper': {
+        result: 'lose',
+        message: 'You lose! Paper beats rock!',
+    },
+    'Rock - Rock': {
+        result: 'tie',
+        message: 'A tie! Rock is no stronger than a rock!'
+    },
 
-    'Paper - Rock': 'You win! Paper beats rock!',
-    'Paper - Scissors': 'You lose! Scissors beats paper!',
-    'Paper - Paper': 'A tie! paper is no stronger than a paper!',
+    'Paper - Rock': {
+        result: 'win',
+        message: 'You win! Paper beats rock!'
+    },
+    'Paper - Scissors': {
+        result: 'lose',
+        message: 'You lose! Scissors beats paper!'
+    },
+    'Paper - Paper': {
+        result: 'tie',
+        message: 'A tie! paper is no stronger than a paper!'
+    },
 
-    'Scissors - Paper': 'You win! Scissors beats paper!',
-    'Scissors - Rock': 'You lose! Rock beats scissors!',
-    'Scissors - Scissors': 'A tie! Scissors is no stronger than a scissors!',
+    'Scissors - Paper': {
+        result: 'win',
+        message: 'You win! Scissors beats paper!'
+    },
+    'Scissors - Rock': {
+        result: 'lose',
+        message: 'You lose! Rock beats scissors!'
+    },
+    'Scissors - Scissors': {
+        result: 'tie',
+        message: 'A tie! Scissors is no stronger than a scissors!'
+    }
 }
 
 const playRound = (playerChoice, computerChoice) => {
-    return resultMessages[`${playerChoice} - ${computerChoice}`];
+    console.log(results[`${playerChoice} - ${computerChoice}`].message);
+    return results[`${playerChoice} - ${computerChoice}`].result;
 };
