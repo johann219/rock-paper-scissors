@@ -13,6 +13,16 @@ const getComputerChoice = () => {
     }
 };
 
+const getPlayerChoice = () => {
+    while (true) {
+        let playerChoice = prompt('Rock, Paper or Scissors (capitalization doesn\'t matter)').toLowerCase();
+        playerChoice = playerChoice.toLowerCase();
+        if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
+            return playerChoice;
+        }
+    }
+};
+
 const results = {
     'rock - scissors': {
         result: 'win',
