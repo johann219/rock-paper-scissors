@@ -1,3 +1,5 @@
+const ROUND_NUMBER = 5;
+
 const getComputerChoice = () => {
     const num = Math.floor(Math.random() * 3) + 1;
     
