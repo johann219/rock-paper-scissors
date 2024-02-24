@@ -65,3 +65,51 @@ const results = {
 }
 
 const playRound = (playerChoice, computerChoice) => results[`${playerChoice} - ${computerChoice}`];
+
+const playGame = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 1; i <= ROUND_NUMBER; i++) {
+        
+        if (i === ROUND_NUMBER) {
+            alert('FINAL ROUND!!!');
+            console.log('FINAL ROUND!!!');
+        } else {
+            alert(`Round ${i}!`);
+            console.log(`Round ${i}!`);
+        }
+
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+        
+        let roundResult = playRound(playerChoice, computerChoice);
+
+        switch (roundResult.result) {
+            case 'win':
+                playerScore++;
+                break;
+            case 'lose':
+                computerScore++;
+                break;
+        }
+        
+        if (i !== ROUND_NUMBER) {
+            alert(`${roundResult.message}\nAfter round ${i} the score is: ${playerScore}-${computerScore}`);
+            console.log(`${roundResult.message}\nAfter round ${i} the score is: ${playerScore}-${computerScore}`);
+        }
+    }
+    
+    if (playerScore > computerScore) {
+        alert(`Congratulations, you win! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your favor!`);
+        console.log(`Congratulations, you win! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your favor!`);
+    } else if (playerScore === computerScore) {
+        alert(`Unfortunately, it's a tie! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore}!`);
+        console.log(`Unfortunately, it's a tie! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore}!`);
+    } else {
+        alert(`Sorry, you lost! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your opponents favor!`);
+        console.log(`Sorry, you lost! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your opponents favor!`);
+    }
+};
+
+playGame();
