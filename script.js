@@ -64,7 +64,4 @@ const results = {
     }
 }
 
-const playRound = (playerChoice, computerChoice) => {
-    console.log(results[`${playerChoice} - ${computerChoice}`].message);
-    return results[`${playerChoice} - ${computerChoice}`].result;
-};
+const playRound = (playerChoice, computerChoice) => results[`${playerChoice} - ${computerChoice}`];
