@@ -3,56 +3,50 @@ const getComputerChoice = () => {
     
     switch (num) {
         case 1: 
-            return 'Rock';
+            return 'rock';
         case 2: 
-            return 'Paper';
+            return 'paper';
         case 3: 
-            return 'Scissors';
+            return 'scissors';
     }
 };
 
-const capitalizeString = (string) => {
-    const firstLetter = string.slice(0, 1).toUpperCase();
-    string = firstLetter + string.slice(1).toLowerCase();
-    return string;
-}
-
 const results = {
-    'Rock - Scissors': {
+    'rock - scissors': {
         result: 'win',
         message: 'You win! Rock beats scissors!'
     },
-    'Rock - Paper': {
+    'rock - paper': {
         result: 'lose',
         message: 'You lose! Paper beats rock!',
     },
-    'Rock - Rock': {
+    'rock - rock': {
         result: 'tie',
         message: 'A tie! Rock is no stronger than a rock!'
     },
 
-    'Paper - Rock': {
+    'paper - rock': {
         result: 'win',
         message: 'You win! Paper beats rock!'
     },
-    'Paper - Scissors': {
+    'paper - scissors': {
         result: 'lose',
         message: 'You lose! Scissors beats paper!'
     },
-    'Paper - Paper': {
+    'paper - paper': {
         result: 'tie',
         message: 'A tie! paper is no stronger than a paper!'
     },
 
-    'Scissors - Paper': {
+    'scissors - paper': {
         result: 'win',
         message: 'You win! Scissors beats paper!'
     },
-    'Scissors - Rock': {
+    'scissors - rock': {
         result: 'lose',
         message: 'You lose! Rock beats scissors!'
     },
-    'Scissors - Scissors': {
+    'scissors - scissors': {
         result: 'tie',
         message: 'A tie! Scissors is no stronger than a scissors!'
     }
