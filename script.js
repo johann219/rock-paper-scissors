@@ -71,7 +71,7 @@ const playRound = (roundNumber) => {
     let computerChoice = getComputerChoice();
     
     let roundResult = results[`${playerChoice} - ${computerChoice}`];
-    console.log(`${roundResult.message}`);
+    console.log(roundResult.message);
 
     return roundResult;
 };
@@ -92,7 +92,7 @@ const playGame = () => {
 
     for (let i = 1; i <= ROUND_NUMBER; i++) {
         let roundResult = playRound(i);
-        
+
         switch (roundResult.result) {
             case 'win':
                 playerScore++;
