@@ -64,7 +64,17 @@ const results = {
     }
 }
 
-const playRound = (playerChoice, computerChoice) => results[`${playerChoice} - ${computerChoice}`];
+const playRound = (roundNumber) => {
+    console.log(`Round ${roundNumber}!`);
+    
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+    
+    let roundResult = results[`${playerChoice} - ${computerChoice}`];
+    console.log(`${roundResult.message}`);
+
+    return roundResult;
+};
 
 const displayResults = (playerScore, computerScore) => {
     if (playerScore > computerScore) {
@@ -81,13 +91,8 @@ const playGame = () => {
     let computerScore = 0;
 
     for (let i = 1; i <= ROUND_NUMBER; i++) {
-        console.log(`Round ${i}!`);
-
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
+        let roundResult = playRound(i);
         
-        let roundResult = playRound(playerChoice, computerChoice);
-
         switch (roundResult.result) {
             case 'win':
                 playerScore++;
@@ -97,7 +102,7 @@ const playGame = () => {
                 break;
         }
         
-        console.log(`${roundResult.message}\nAfter round ${i} the score is: ${playerScore}-${computerScore}`);
+        console.log(`After round ${i} the score is: ${playerScore}-${computerScore}`);
     }
     
     displayResults(playerScore, computerScore);
