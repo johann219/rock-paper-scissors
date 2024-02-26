@@ -1,6 +1,7 @@
-# rock-paper-scissors
+# Rock-Paper-Scissors Site for Odin Project
 
-TO-DO:
+Made by **Komarov Ivan**
 
-Implement object for storing game results
-Implement GUI
+Student of [HTML Academy](https://htmlacademy.ru/)
+
+Free learner on [The Odin Project](https://www.theodinproject.com/)
