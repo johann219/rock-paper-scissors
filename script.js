@@ -64,10 +64,7 @@ const getPlayerChoice = () => {
     }
 };
 
-const playRound = (roundNumber) => {
-    console.log(`Round ${roundNumber}!`);
-    
-    let playerChoice = getPlayerChoice();
+const playRound = (playerChoice) => {
     let computerChoice = getComputerChoice();
     
     let roundResult = results[`${playerChoice} - ${computerChoice}`];
@@ -75,6 +72,15 @@ const playRound = (roundNumber) => {
 
     return roundResult;
 };
+
+const selectionButtons = document.querySelectorAll('.selection');
+
+for (let button of selectionButtons) {
+    button.addEventListener('click', (event) => {
+        const target = event.target;
+        playRound(target.id);
+    });
+}
 
 const displayResults = (playerScore, computerScore) => {
     if (playerScore > computerScore) {
@@ -84,26 +90,4 @@ const displayResults = (playerScore, computerScore) => {
     } else {
         console.log(`Sorry, you lost! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your opponents favor!`);
     }
-};
-
-const playGame = () => {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 1; i <= ROUND_NUMBER; i++) {
-        let roundResult = playRound(i);
-
-        switch (roundResult.result) {
-            case 'win':
-                playerScore++;
-                break;
-            case 'lose':
-                computerScore++;
-                break;
-        }
-        
-        console.log(`After round ${i} the score is: ${playerScore}-${computerScore}`);
-    }
-    
-    displayResults(playerScore, computerScore);
 };
