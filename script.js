@@ -107,5 +107,3 @@ const playGame = () => {
     
     displayResults(playerScore, computerScore);
 };
-
-playGame();
