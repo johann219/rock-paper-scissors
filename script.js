@@ -1,28 +1,5 @@
 const ROUND_NUMBER = 5;
 
-const getComputerChoice = () => {
-    const num = Math.floor(Math.random() * 3) + 1;
-    
-    switch (num) {
-        case 1: 
-            return 'rock';
-        case 2: 
-            return 'paper';
-        case 3: 
-            return 'scissors';
-    }
-};
-
-const getPlayerChoice = () => {
-    while (true) {
-        let playerChoice = prompt('Rock, Paper or Scissors (capitalization doesn\'t matter)').toLowerCase();
-        playerChoice = playerChoice.toLowerCase();
-        if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
-            return playerChoice;
-        }
-    }
-};
-
 const results = {
     'rock - scissors': {
         result: 'win',
@@ -63,6 +40,29 @@ const results = {
         message: 'A tie! Scissors is no stronger than a scissors!'
     }
 }
+
+const getComputerChoice = () => {
+    const num = Math.floor(Math.random() * 3) + 1;
+    
+    switch (num) {
+        case 1: 
+            return 'rock';
+        case 2: 
+            return 'paper';
+        case 3: 
+            return 'scissors';
+    }
+};
+
+const getPlayerChoice = () => {
+    while (true) {
+        let playerChoice = prompt('Rock, Paper or Scissors (capitalization doesn\'t matter)').toLowerCase();
+        playerChoice = playerChoice.toLowerCase();
+        if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
+            return playerChoice;
+        }
+    }
+};
 
 const playRound = (roundNumber) => {
     console.log(`Round ${roundNumber}!`);
