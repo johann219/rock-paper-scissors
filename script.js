@@ -54,6 +54,9 @@ const getComputerChoice = () => {
     }
 };
 
+let playerScore = document.querySelector('.player-score');
+let computerScore = document.querySelector('.computer-score');
+
 const playRound = (playerChoice) => {
     let computerChoice = getComputerChoice();
     
