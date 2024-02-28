@@ -64,6 +64,8 @@ let messageDisplay = document.querySelector('.message');
 
 let gameDisplay = document.querySelector('.game-wrapper');
 
+let selectionButtons = document.querySelectorAll('.selection');
+
 const updateScore = (result) => {
     switch (result) {
         case 'win':
@@ -88,6 +90,12 @@ const createRestart = () => {
     gameDisplay.appendChild(restartButton);
 };
 
+const blockSelection = () => {
+    for (let button of selectionButtons) {
+        button.disabled = true;
+    }
+};
+
 const declareResult = (winner) => {
     const winnerMessage = document.createElement('div');
     
@@ -103,6 +111,8 @@ const declareResult = (winner) => {
     }
 
     gameDisplay.appendChild(winnerMessage);
+    blockSelection();
+    createRestart();
 };
 
 const playRound = (playerChoice) => {
@@ -112,11 +122,10 @@ const playRound = (playerChoice) => {
     updateScore(roundResult.result);
     updateMessage(roundResult.message);
 
-    if (playerScore === 5) declareWinner();
-    if (computerScore === 5) declareLoser();
+    if (playerScore === 5) declareResult('player');
+    if (computerScore === 5) declareResult('computer');
 };
 
-const selectionButtons = document.querySelectorAll('.selection');
 for (let button of selectionButtons) {
     button.addEventListener('click', (event) => {
         const target = event.target;
