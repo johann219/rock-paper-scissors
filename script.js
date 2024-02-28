@@ -60,8 +60,10 @@ let computerScoreDisplay = document.querySelector('.computer-score');
 let playerScore = 0;
 let computerScore = 0;
 
-const updateScore = (roundResult) => {
-    switch (roundResult.result) {
+let messageDisplay = document.querySelector('.message');
+
+const updateScore = (result) => {
+    switch (result) {
         case 'win':
             playerScore++;
             playerScoreDisplay.textContent = playerScore;
@@ -74,14 +76,15 @@ const updateScore = (roundResult) => {
 };
 
 const updateMessage = (message) => {
-    // вывести сообщение о прошедшем раунде в строку объявлений
+    messageDisplay.textContent = message;
 };
 
 const playRound = (playerChoice) => {
     let computerChoice = getComputerChoice();
     
     let roundResult = results[`${playerChoice} - ${computerChoice}`];
-    updateScore(roundResult);
+    updateScore(roundResult.result);
+    updateMessage(roundResult.message);
 };
 
 const selectionButtons = document.querySelectorAll('.selection');
