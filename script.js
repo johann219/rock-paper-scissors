@@ -81,17 +81,27 @@ const updateMessage = (message) => {
     messageDisplay.textContent = message;
 };
 
-const declareWinner = () => {
-    const winnerMessage = document.createElement('div');
-    winnerMessage.classList.add('winner');
-    winnerMessage.textContent = 'You won! Congratulations!';
-    gameDisplay.appendChild(winnerMessage);
+const createRestart = () => {
+    const restartButton = document.createElement('div');
+    restartButton.classList.add('restart-button');
+    restartButton.textContent = 'Restart the game!';
+    gameDisplay.appendChild(restartButton);
 };
 
-const declareLoser = () => {
+const declareResult = (winner) => {
     const winnerMessage = document.createElement('div');
-    winnerMessage.classList.add('loser');
-    winnerMessage.textContent = 'You lost! Sorry!';
+    
+    switch (winner) {
+        case 'player':
+            winnerMessage.classList.add('winner');
+            winnerMessage.textContent = 'You won! Congratulations!';
+            break;
+        case 'computer':
+            winnerMessage.classList.add('loser');
+            winnerMessage.textContent = 'You lost! Sorry!';
+            break;
+    }
+
     gameDisplay.appendChild(winnerMessage);
 };
 
