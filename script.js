@@ -62,6 +62,8 @@ let computerScore = 0;
 
 let messageDisplay = document.querySelector('.message');
 
+let gameDisplay = document.querySelector('.game-wrapper');
+
 const updateScore = (result) => {
     switch (result) {
         case 'win':
@@ -77,6 +79,21 @@ const updateScore = (result) => {
 
 const updateMessage = (message) => {
     messageDisplay.textContent = message;
+};
+
+const declareWinner = (winner) => {
+    const winnerMessage = document.createElement('div');
+    switch (winner) {
+        case 'player':
+            winnerMessage.classList.add('winner');
+            winnerMessage.textContent = 'You won! Congratulations!';
+            break;
+        case 'computer':
+            winnerMessage.classList.add('loser');
+            winnerMessage.textContent = 'You lost! Sorry!';
+            break;
+    }
+    gameDisplay.appendChild(winnerMessage);
 };
 
 const playRound = (playerChoice) => {
