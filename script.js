@@ -102,14 +102,8 @@ const playRound = (playerChoice) => {
     updateScore(roundResult.result);
     updateMessage(roundResult.message);
 
-
-    if (playerScore === 5) {
-        declareWinner('player');
-    }
-
-    if (computerScore === 5) {
-        declareWinner('computer');
-    }
+    if (playerScore === 5) declareWinner();
+    if (computerScore === 5) declareLoser();
 };
 
 const selectionButtons = document.querySelectorAll('.selection');
