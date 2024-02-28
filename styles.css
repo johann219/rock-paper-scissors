@@ -13,3 +13,7 @@
 .results {
     display:flex;
 }
+
+.hidden {
+    display: none;
+}

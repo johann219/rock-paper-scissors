@@ -54,8 +54,8 @@ const getComputerChoice = () => {
     }
 };
 
-let playerScore = document.querySelector('.player-score');
-let computerScore = document.querySelector('.computer-score');
+let playerScoreDisplay = document.querySelector('.player-score');
+let computerScoreDisplay = document.querySelector('.computer-score');
 
 const playRound = (playerChoice) => {
     let computerChoice = getComputerChoice();
@@ -74,3 +74,9 @@ for (let button of selectionButtons) {
         playRound(target.id);
     });
 }
+
+const startButton = document.querySelector('.start');
+startButton.addEventListener('click', () => {
+    playerScoreDisplay.classList.remove('hidden');
+    computerScoreDisplay.classList.remove('hidden');
+});
