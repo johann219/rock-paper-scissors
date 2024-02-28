@@ -71,13 +71,3 @@ for (let button of selectionButtons) {
         playRound(target.id);
     });
 }
-
-const displayResults = (playerScore, computerScore) => {
-    if (playerScore > computerScore) {
-        console.log(`Congratulations, you win! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your favor!`);
-    } else if (playerScore === computerScore) {
-        console.log(`Unfortunately, it's a tie! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore}!`);
-    } else {
-        console.log(`Sorry, you lost! After ${ROUND_NUMBER} rounds the score is ${playerScore}-${computerScore} in your opponents favor!`);
-    }
-};
