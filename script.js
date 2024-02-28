@@ -102,6 +102,15 @@ const playRound = (playerChoice) => {
     let roundResult = results[`${playerChoice} - ${computerChoice}`];
     updateScore(roundResult.result);
     updateMessage(roundResult.message);
+
+
+if (playerScore === 5) {
+    declareWinner('player');
+}
+
+if (computerScore === 5) {
+    declareWinner('computer');
+}
 };
 
 const selectionButtons = document.querySelectorAll('.selection');
@@ -111,7 +120,6 @@ for (let button of selectionButtons) {
         playRound(target.id);
     });
 }
-
 // Кнопки выбора - при нажатии играется раунд, счет записывается и отображается, 
 // при достижении 5 очков - объявляется победитель. Кнопки становятся не активны
 // Строка объявлений - объясняет исход сыгранного раунда или приглашает начать игру
