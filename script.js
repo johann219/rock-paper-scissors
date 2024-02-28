@@ -57,6 +57,9 @@ const getComputerChoice = () => {
 let playerScoreDisplay = document.querySelector('.player-score');
 let computerScoreDisplay = document.querySelector('.computer-score');
 
+let playerScore = 0;
+let computerScore = 0;
+
 const playRound = (playerChoice) => {
     let computerChoice = getComputerChoice();
     
@@ -67,7 +70,6 @@ const playRound = (playerChoice) => {
 };
 
 const selectionButtons = document.querySelectorAll('.selection');
-
 for (let button of selectionButtons) {
     button.addEventListener('click', (event) => {
         const target = event.target;
@@ -75,8 +77,10 @@ for (let button of selectionButtons) {
     });
 }
 
-const startButton = document.querySelector('.start');
-startButton.addEventListener('click', () => {
-    playerScoreDisplay.classList.remove('hidden');
-    computerScoreDisplay.classList.remove('hidden');
-});
+// Кнопки выбора - при нажатии играется раунд, счет записывается и отображается, 
+// при достижении 5 очков - объявляется победитель. Кнопки становятся не активны
+// Строка объявлений - объясняет исход сыгранного раунда или приглашает начать игру
+    // При нулевом счете приглашает сделать первый выбор
+// Кнопка Start Over позволяет начать новую игру в любой момент времени 
+    // Сбрасывает счет и его отображение до 0
+    // В строке объявлений показывает приглашение сделать первый выбор
