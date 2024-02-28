@@ -66,6 +66,10 @@ let gameDisplay = document.querySelector('.game-wrapper');
 
 let selectionButtons = document.querySelectorAll('.selection');
 
+let gameResultDisplay = document.querySelector('.result');
+
+let restartButton = document.querySelector('.restart');
+
 const updateScore = (result) => {
     switch (result) {
         case 'win':
@@ -83,11 +87,26 @@ const updateMessage = (message) => {
     messageDisplay.textContent = message;
 };
 
+const restartGame = () => {
+    for (let button of selectionButtons) {
+        button.disabled = false;
+    }
+    playerScore = 0;
+    computerScore = 0;
+
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = playerScore;
+    
+    // const resultRemoval = document.querySelector('.result');
+    // resultRemoval.remove();
+
+    // const restartRemoval = document.querySelector('.restart-button');
+    // restartRemoval.remove();
+};
+
 const createRestart = () => {
-    const restartButton = document.createElement('div');
-    restartButton.classList.add('restart-button');
+    restartButton.classList.add('restart-style');
     restartButton.textContent = 'Restart the game!';
-    gameDisplay.appendChild(restartButton);
 };
 
 const blockSelection = () => {
@@ -97,20 +116,19 @@ const blockSelection = () => {
 };
 
 const declareResult = (winner) => {
-    const winnerMessage = document.createElement('div');
-    
     switch (winner) {
         case 'player':
-            winnerMessage.classList.add('winner');
-            winnerMessage.textContent = 'You won! Congratulations!';
+            gameResultDisplay.classList.remove('hidden');
+            gameResultDisplay.classList.add('winner');
+            gameResultDisplay.textContent = 'You won! Congratulations!';
             break;
         case 'computer':
-            winnerMessage.classList.add('loser');
-            winnerMessage.textContent = 'You lost! Sorry!';
+            gameResultDisplay.classList.remove('hidden');
+            gameResultDisplay.classList.add('loser');
+            gameResultDisplay.textContent = 'You lost! Sorry!';
             break;
     }
 
-    gameDisplay.appendChild(winnerMessage);
     blockSelection();
     createRestart();
 };
@@ -132,6 +150,8 @@ for (let button of selectionButtons) {
         playRound(target.id);
     });
 }
+
+
 // Кнопки выбора - при нажатии играется раунд, счет записывается и отображается, 
 // при достижении 5 очков - объявляется победитель. Кнопки становятся не активны
 // Строка объявлений - объясняет исход сыгранного раунда или приглашает начать игру

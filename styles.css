@@ -90,9 +90,9 @@ body {
     text-align: center;
 }
 
-.restart-button {
+.restart-style {
     padding: 4px 8px;
-    margin: 16px 0;
+    margin-top: 16px;
     font-size: 24px;
     font-weight: bold;
     border: 2px solid green;
