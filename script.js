@@ -87,23 +87,6 @@ const updateMessage = (message) => {
     messageDisplay.textContent = message;
 };
 
-const restartGame = () => {
-    for (let button of selectionButtons) {
-        button.disabled = false;
-    }
-    playerScore = 0;
-    computerScore = 0;
-
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = playerScore;
-    
-    // const resultRemoval = document.querySelector('.result');
-    // resultRemoval.remove();
-
-    // const restartRemoval = document.querySelector('.restart-button');
-    // restartRemoval.remove();
-};
-
 const createRestart = () => {
     restartButton.classList.add('restart-style');
     restartButton.textContent = 'Restart the game!';
@@ -152,10 +135,33 @@ for (let button of selectionButtons) {
 }
 
 
-// Кнопки выбора - при нажатии играется раунд, счет записывается и отображается, 
-// при достижении 5 очков - объявляется победитель. Кнопки становятся не активны
-// Строка объявлений - объясняет исход сыгранного раунда или приглашает начать игру
-    // При нулевом счете приглашает сделать первый выбор
-// Кнопка Start Over позволяет начать новую игру в любой момент времени 
-    // Сбрасывает счет и его отображение до 0
-    // В строке объявлений показывает приглашение сделать первый выбор
+const restartGame = () => {
+    
+    
+    // const resultRemoval = document.querySelector('.result');
+    // resultRemoval.remove();
+
+    // const restartRemoval = document.querySelector('.restart-button');
+    // restartRemoval.remove();
+};
+
+restartButton.addEventListener('click', () => {
+    for (let button of selectionButtons) {
+        button.disabled = false;
+    }
+    playerScore = 0;
+    computerScore = 0;
+
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = playerScore;
+
+    gameResultDisplay.classList.contains('winner') ? gameResultDisplay.classList.remove('winner') : gameResultDisplay.classList.remove('loser');
+    gameResultDisplay.textContent = ''
+    gameResultDisplay.classList.add('hidden');
+
+    restartButton.classList.remove('restart-style');
+    restartButton.textContent = ''
+    restartButton.classList.add('hidden');
+
+    updateMessage('Start the game: pick Rock, Paper ;or Scissors!');
+});
